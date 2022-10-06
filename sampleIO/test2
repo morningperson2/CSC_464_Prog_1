@@ -1,0 +1,6 @@
+Your program should now reopen the file and again read
+it line by line. Build a String
+of the encoded text using the appropriate Huffman
+Code that was calculated and stored into the HuffmanCode hashmap. When
+all lines have been read and encoded, print out the encoded file
+of 0's and 1's.

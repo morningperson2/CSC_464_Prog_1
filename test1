@@ -1,0 +1,4 @@
+This is a multiple line file. It contains four lines total
+and should be useful for checking your program
+for multi-line input files. Please read how I handled
+end-of-line symbols if your results vary from mine.
