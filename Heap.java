@@ -34,28 +34,34 @@ public class Heap {
 
     public HeapNode deleteMin()
     {
-        if(numElements == 0){
+        if(numElements == 0)
+        {
             System.out.println("The heap is empty.");
             return null;
         }
-        else{
+        else
+        {
             HeapNode temp = array[0];
             array[0] = array[numElements-1];
             numElements--;
             array[numElements] = null;
-            if(numElements > 0){
+            if(numElements > 0)
+            {
                 siftDown(0);
             }
             return temp;
         }
     }
 
-    public void insert(HeapNode node){
+    public void insert(HeapNode node)
+    {
 
-        if(numElements == capacity){
+        if(numElements == capacity)
+        {
             System.out.println("The heap is full.");
         }
-        else{
+        else
+        {
             numElements++;
             array[numElements-1] = node;
             siftUp(numElements-1);
@@ -67,46 +73,58 @@ public class Heap {
         return numElements;
     }
 
-    private void siftUp(int nodeIndex){
+    private void siftUp(int nodeIndex)
+    {
         int parentIndex;
-        if(nodeIndex != 0){
+        if(nodeIndex != 0)
+        {
             parentIndex = (nodeIndex - 1)/2;
-            if(array[parentIndex].freq > array[nodeIndex].freq){
+            if(array[parentIndex].freq > array[nodeIndex].freq)
+            {
                 swap(parentIndex, nodeIndex);
                 siftUp(parentIndex);
             }
         }
     }
 
-    private void siftDown(int node){
+    private void siftDown(int node)
+    {
         int leftChild, rightChild;
         int min;
         leftChild = (node * 2) + 1;
         rightChild = (node * 2) + 2;
-        if(rightChild >= numElements){
-            if(leftChild >= numElements){
+        if(rightChild >= numElements)
+        {
+            if(leftChild >= numElements)
+            {
                 return;
             }
-            else{
+            else
+            {
                 min = leftChild;
             }
         }
-        else{
-            if(array[leftChild].freq <= array[rightChild].freq){
+        else
+        {
+            if(array[leftChild].freq <= array[rightChild].freq)
+            {
                 min = leftChild;
             }
-            else{
+            else
+            {
                 min = rightChild;
             }
         }
-        if(array[node].freq > array[min].freq){
+        if(array[node].freq > array[min].freq)
+        {
             swap(node, min);
             siftDown(min);
         }
     }
 
 
-    private void swap(int pos1, int pos2){
+    private void swap(int pos1, int pos2)
+    {
         HeapNode temp;
         temp = array[pos1];
 

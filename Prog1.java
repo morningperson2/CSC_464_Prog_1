@@ -29,22 +29,27 @@ public class Prog1 {
                 char[] nLine = line.toCharArray();
 
                 for (char c : nLine) {
-                    if (!map.containsKey(c)) {
+                    if (!map.containsKey(c))
+                    {
                         map.put(c, 1);
-                    } else {
+                    }
+                    else
+                    {
                         map.put(c, map.get(c) + 1);
                     }
                 }
                 count++;
 
             }
-            if(count > 0){
+            if(count > 0)
+            {
                 map.put(Character.valueOf((char)0), count);
             }
 
             fReader.close();
             Heap heap = new Heap(map);
-            while(heap.getSize() > 1){
+            while(heap.getSize() > 1)
+            {
                 HeapNode left = heap.deleteMin();
                 HeapNode right = heap.deleteMin();
                 HeapNode newNode = new HeapNode(null, (left.freq+ right.freq), left, right);
@@ -67,11 +72,14 @@ public class Prog1 {
             {
                 System.out.println(line2);
                 char[] nLine2 = line2.toCharArray();
-                if(count2 > 0){
+                if(count2 > 0)
+                {
                     sBuffer.append(HuffmanCode.get(Character.valueOf((char)0)));
                 }
-                for (char c : nLine2) {
-                    if (HuffmanCode.containsKey(c)) {
+                for (char c : nLine2)
+                {
+                    if (HuffmanCode.containsKey(c))
+                    {
                         sBuffer.append(HuffmanCode.get(c));
                     }
                 }
